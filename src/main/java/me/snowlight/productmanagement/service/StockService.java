@@ -14,8 +14,9 @@ public  class StockService {
         this.stockRepository = stockRepository;
     }
 
-    @Transactional
-    public void decrease(Long id, Long quantity) {
+// TransactionStockService 예시 코드
+//    @Transactional
+    public synchronized void decrease(Long id, Long quantity) {
         Stock stock = this.stockRepository.findById(id).orElseThrow(IllegalArgumentException::new);
         stock.decrease(quantity);
         this.stockRepository.saveAndFlush(stock) ;
