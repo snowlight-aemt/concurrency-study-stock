@@ -22,7 +22,7 @@ class StockServiceTest {
     private StockRepository stockRepository;
 
     @Autowired
-    private StockService stockService;
+    private PessimisticLockService stockService;
 
     @AfterEach
     public void after() {
